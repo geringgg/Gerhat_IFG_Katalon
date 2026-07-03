@@ -1,0 +1,40 @@
+services:
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.1.7
+    container_name: ifg-redpanda
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - 512M
+      - --reserve-memory
+      - 0M
+      - --node-id
+      - "0"
+      - --check=false
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://localhost:9092
+    ports:
+      - "9092:9092"
+      - "9644:9644"
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "health"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  seed-policy-event:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.1.7
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "rpk topic create ifg-policy-events --brokers redpanda:9092 || true;
+      printf 'POL-IFG-001|{\"eventType\":\"POLICY_CREATED\",\"policyNumber\":\"POL-IFG-001\",\"product\":\"IFG LifeSAVER\",\"status\":\"ACTIVE\",\"premium\":250000}\n'
+      | rpk topic produce ifg-policy-events --brokers redpanda:9092 --parse-key --delimiter='|'"

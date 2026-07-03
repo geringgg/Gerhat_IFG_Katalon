@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Katalon acts as REST consumer by sending GET /posts/{id} and validating response contract.</description>
+   <name>Consumer Get Policy</name>
+   <tag>rest,consumer</tag>
+   <comment></comment>
+   <testCaseGuid>caed2888-3b3b-4307-9dcf-f408d77bf30a</testCaseGuid>
+</TestCaseEntity>

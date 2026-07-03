@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Combined REST producer and consumer validation in one test case.</description>
+   <name>End-to-End Producer Consumer</name>
+   <tag>rest,producer,consumer,e2e</tag>
+   <comment></comment>
+   <testCaseGuid>5710f303-7a10-41f7-a381-7e53dfd90275</testCaseGuid>
+</TestCaseEntity>

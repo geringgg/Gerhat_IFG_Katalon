@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description>Default execution profile for IFG Assurance technical test.</description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Base URL for REST API tests.</description>
+      <initValue>'https://jsonplaceholder.typicode.com'</initValue>
+      <name>restBaseUrl</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Policy id used by REST consumer GET test.</description>
+      <initValue>1</initValue>
+      <name>consumerPolicyId</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Kafka bootstrap server.</description>
+      <initValue>'localhost:9092'</initValue>
+      <name>kafkaBootstrapServers</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Kafka topic for policy events.</description>
+      <initValue>'ifg-policy-events'</initValue>
+      <name>kafkaTopic</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Kafka consumer group id.</description>
+      <initValue>'ifg-katalon-consumer-group'</initValue>
+      <name>kafkaConsumerGroupId</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

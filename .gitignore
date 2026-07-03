@@ -1,0 +1,8 @@
+.cache/
+.metadata/
+.settings/
+bin/
+Reports/
+Libs/
+Drivers/*.jar
+console.properties
